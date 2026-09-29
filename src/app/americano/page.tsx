@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { useAmericanoScore } from "@/hooks/useAmericanoScore";
 import styles from "./americano.module.css";
 import {
@@ -22,6 +23,10 @@ function SetupScreen({ onStart }: { onStart: (names: string[], max: number) => v
 
   return (
     <div className={styles.setupWrap}>
+      <Link href="/" className={styles.setupHomeBtn}>
+        <ArrowLeft size={18} /> Home
+      </Link>
+      
       <div className={styles.setupCard}>
         <div className={styles.setupIcon}>🌀</div>
         <h1 className={styles.setupTitle}>Americano</h1>
