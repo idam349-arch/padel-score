@@ -1,150 +1,256 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
-}
-
 .main {
+  min-height: 100vh;
   display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
-}
-
-.intro {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
-}
-
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
-  width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
-}
-
-.ctas a {
-  display: flex;
-  justify-content: center;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.mesh {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.meshOrb1 {
+  position: absolute;
+  top: -15%;
+  left: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(99,102,241,0.1) 0%, transparent 65%);
+  animation: float 8s ease-in-out infinite;
+}
+
+.meshOrb2 {
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(139,92,246,0.08) 0%, transparent 65%);
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+.meshOrb3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(16,185,129,0.04) 0%, transparent 65%);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.05); }
+}
+
+.container {
+  width: 100%;
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── HERO ─── */
+.hero {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(32px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.logoBadge {
+  width: 88px;
+  height: 88px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.2));
+  border: 1px solid rgba(99,102,241,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(99,102,241,0.2), inset 0 1px 0 rgba(255,255,255,0.05);
+  animation: float 4s ease-in-out infinite;
+}
+
+.logoIcon {
+  font-size: 42px;
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.4));
+}
+
+.heroTitle {
+  font-family: "Outfit", sans-serif;
+  font-size: clamp(2.8rem, 6vw, 4rem);
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: -1px;
+}
+
+.heroSubtitle {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 420px;
+}
+
+/* ─── MODE CARDS ─── */
+.modes {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  animation: fadeInUp 0.6s 0.2s ease both;
+}
+
+.modeCard {
+  position: relative;
+  background: rgba(17,24,39,0.6);
+  border: 1px solid rgba(99,102,241,0.15);
+  border-radius: 24px;
+  padding: 28px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(20px);
   cursor: pointer;
+  display: block;
+}
+
+.modeCard:hover {
+  border-color: rgba(99,102,241,0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 40px rgba(99,102,241,0.1);
+}
+
+.modeCard:active {
+  transform: translateY(-1px);
+}
+
+.modeCardGlow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.modeCard:hover .modeCardGlow {
+  opacity: 1;
+}
+
+.modeCardInner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.modeIconWrap {
+  width: 60px;
+  height: 60px;
+  min-width: 60px;
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+}
+
+.modeInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.modeBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
   width: fit-content;
-  font-weight: 500;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.modeTitle {
+  font-family: "Outfit", sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text);
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.modeDesc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+.modeFeatures {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 12px;
+  list-style: none;
+  margin-top: 4px;
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
+.modeFeatures li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  color: #64748b;
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
-  }
-
-  .page {
-    --background: #000;
-    --foreground: #000;
-
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
-  }
+.modeArrow {
+  color: var(--text-muted);
+  transition: all 0.3s;
+  flex-shrink: 0;
 }
 
-.code {
-  font-family: var(--font-geist-mono);
-  font-size: 0.9em;
-  background: color-mix(in srgb, currentColor 8%, transparent);
-  padding: 0.1em 0.4em;
-  border-radius: 6px;
+.modeCard:hover .modeArrow {
+  color: var(--text-2);
+  transform: translateX(4px);
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  animation: fadeInUp 0.6s 0.4s ease both;
+}
+
+@media (max-width: 480px) {
+  .modeCardInner {
+    flex-wrap: wrap;
+  }
+  .modeIconWrap {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+    border-radius: 14px;
+  }
 }
