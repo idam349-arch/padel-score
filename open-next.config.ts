@@ -8,8 +8,8 @@ export default {
       tagCache: "dummy",
       queue: "dummy",
     },
-    edgeExternals: ["node:crypto"],
   },
+  edgeExternals: ["node:crypto"],
   middleware: {
     external: true,
     override: {
