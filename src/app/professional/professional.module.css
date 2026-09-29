@@ -15,6 +15,34 @@
   background: var(--bg);
 }
 
+.setupHomeBtn {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  color: var(--text-2);
+  font-family: "Outfit", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  z-index: 10;
+}
+
+.setupHomeBtn:hover {
+  background: var(--surface-3);
+  color: var(--text);
+  border-color: var(--border-2);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
 /* ─── SETUP CARD ─── */
 .setupCard {
   width: 100%;

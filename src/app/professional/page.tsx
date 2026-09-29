@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 import { useProfessionalScore } from "@/hooks/useProfessionalScore";
 import styles from "./professional.module.css";
 import {
@@ -15,6 +16,10 @@ function SetupScreen({ onStart }: { onStart: (a: string, b: string, server: "A" 
 
   return (
     <div className={styles.setupWrap}>
+      <Link href="/" className={styles.setupHomeBtn}>
+        <ArrowLeft size={18} /> Home
+      </Link>
+      
       <div className={styles.setupCard}>
         <div className={styles.setupIcon}>🏆</div>
         <h1 className={styles.setupTitle}>Professional Match</h1>
