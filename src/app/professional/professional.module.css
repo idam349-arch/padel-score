@@ -297,20 +297,20 @@
 /* ─── SETS ROW ─── */
 .setsRow {
   width: 100%;
-  max-width: 700px;
+  max-width: 1000px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 0 24px 16px;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 24px 24px;
 }
 
 .setsLabel {
-  font-size: 0.7rem;
-  font-weight: 600;
+  font-size: 0.9rem;
+  font-weight: 700;
   color: var(--text-muted);
   letter-spacing: 1px;
   text-transform: uppercase;
-  min-width: 32px;
 }
 
 .setsGrid {
@@ -321,16 +321,16 @@
 .setCell {
   display: flex;
   align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: 10px;
+  gap: 10px;
+  padding: 10px 24px;
+  border-radius: 12px;
   background: var(--surface);
   border: 1px solid var(--border);
   font-family: "Outfit", sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.6rem;
+  font-weight: 700;
   color: var(--text-muted);
-  min-width: 60px;
+  min-width: 80px;
   justify-content: center;
 }
 
